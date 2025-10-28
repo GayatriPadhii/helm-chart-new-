@@ -1,0 +1,26 @@
+apiVersion: v2
+name: my-chart
+description: A reusable Helm chart template for Kubernetes workloads with support for deployments, services, ingress, autoscaling, config maps, and secrets.
+
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+keywords:
+  - kubernetes
+  - helm
+  - deployment
+  - service
+  - ingress
+  - autoscaling
+  - configmap
+  - vault
+  - secretproviderclass
+
+maintainers:
+  - name: DevOps Team
+    email: devops@example.com
+
+annotations:
+  category: infrastructure
+  usage: reusable-template

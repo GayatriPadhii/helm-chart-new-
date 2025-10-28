@@ -1,0 +1,132 @@
+# Application metadata
+appName: my-app
+envName: dev
+k8sClusterName: my-cluster
+isSharedNamespace: false
+removeEnvPrefix: false
+
+# Image configuration
+image:
+  repository: myregistry/my-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Workload type
+workloadType: deployment
+
+# Deployment settings
+replicaCount: 2
+deploymentStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 50%
+    maxUnavailable: 0
+progressDeadlineSeconds: 600
+revisionHistoryLimit: 5
+
+# Autoscaling
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 75
+  targetMemoryUtilizationPercentage: 80
+
+# Pod configuration
+podLabels: {}
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+imagePullSecrets: []
+
+# Init containers
+initContainers: []
+
+# Container settings
+command: []
+args: []
+env: []
+envFrom: []
+ports:
+  - name: http
+    containerPort: 8080
+    protocol: TCP
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+
+# Health probes
+health:
+  livenessProbeEnabled: false
+  readinessProbeEnabled: false
+  startupProbeEnabled: false
+  livenessProbe: {}
+  readinessProbe: {}
+  startupProbe: {}
+
+# Volumes
+volumeMounts: []
+volumes: []
+extraVolumeMounts: []
+extraVolumes: []
+
+# Node scheduling
+nodeSelector: {}
+affinity: {}
+tolerations: []
+
+# Service configuration
+service:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+
+# Ingress configuration
+ingress:
+  enabled: false
+  useDefaults: false
+  className: nginx
+  annotations: {}
+  hostDns: example.com
+  tls: []
+  hosts: []
+
+ingressDefaults:
+  hostDns: example.com
+
+# ConfigMap
+configMapName: ""
+configMap:
+  application.properties: |
+    server.port=8080
+    logging.level.root=INFO
+
+# ServiceAccount
+serviceAccount:
+  create: true
+  name: ""
+  automount: true
+  annotations: {}
+
+# SecretProviderClass
+secretConfig:
+  existingSecretProviderClass: ""
+  vaultAddress: https://vault.example.com
+  roleName: my-role
+  vaultKubernetesMountPath: kubernetes
+  vaultCACertPath: /vault/certs/ca.crt
+  vaultSkipTLSVerify: "false"
+  volumeMountName: secrets-store
+  volumeMountPath: /mnt/secrets-store
+
+secrets:
+  - secretKey: "db-password"
+    objectName: "db-password"
+    secretPath: "secret/data/myapp/db"
+    key: "password"
