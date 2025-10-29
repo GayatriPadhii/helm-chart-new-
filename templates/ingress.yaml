@@ -1,0 +1,65 @@
+{{- if .Values.ingress.enabled }}
+{{- if .Values.ingress.useDefaults }}
+  {{- $_ := mustMergeOverwrite .Values.ingressDefaults .Values.ingress }}
+  {{- $_ := deepCopy .Values.ingressDefaults | mustMergeOverwrite .Values.ingress }}
+{{- end }}
+{{- if .Values.ingress.className }}
+  {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
+    {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className }}
+  {{- end }}
+{{- end }}
+
+{{- $appName := include "your-chart.fullname" . -}}
+{{- $subdomain := include "your-chart.subdomain" . -}}
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $appName }}
+  labels:
+    {{- include "your-chart.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.ingress.tls }}
+  tls:
+    {{- range .Values.ingress.tls }}
+    - hosts:
+        {{- if $.Values.ingress.useDefaults }}
+        - {{ printf "%s.%s.%s" $subdomain $.Values.k8sClusterName $.Values.ingress.hostDns | quote }}
+        {{- else }}
+        {{- range .hosts }}
+        - {{ . | quote }}
+        {{- end }}
+        {{- end }}
+      {{- if .secretName }}
+      secretName: {{ .secretName }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  rules:
+    {{- range .Values.ingress.hosts }}
+    {{- if $.Values.ingress.useDefaults }}
+    - host: {{ printf "%s.%s.%s" $subdomain $.Values.k8sClusterName $.Values.ingress.hostDns | quote }}
+    {{- else }}
+    - host: {{ .host | quote }}
+    {{- end }}
+      http:
+        paths:
+          {{- range .paths }}
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: {{ $appName }}
+                port:
+                  {{- if $.Values.ingress.useDefaults }}
+                  number: {{ (first $.Values.service.ports).port }}
+                  {{- else }}
+                  number: {{ .servicePort }}
+                  {{- end }}
+          {{- end }}
+    {{- end }}
+{{- end }}
