@@ -1,0 +1,551 @@
+
+C:\Users\GAYATRI>cd Downloads
+
+C:\Users\GAYATRI\Downloads>cd helmv2
+The system cannot find the path specified.
+
+C:\Users\GAYATRI\Downloads>cd helmV2
+The system cannot find the path specified.
+
+C:\Users\GAYATRI\Downloads>cd helm-v2
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm lint ./helm-v2
+==> Linting ./helm-v2
+Error unable to check Chart.yaml file in chart: CreateFile helm-v2\Chart.yaml: The system cannot find the path specified.
+
+Error: 1 chart(s) linted, 1 chart(s) failed
+
+C:\Users\GAYATRI\Downloads\helm-v2>cd helm-chart
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart>helm lint ./helm-chart
+==> Linting ./helm-chart
+Error unable to check Chart.yaml file in chart: CreateFile helm-chart\Chart.yaml: The system cannot find the path specified.
+
+Error: 1 chart(s) linted, 1 chart(s) failed
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart>cd ..
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm lint ./helm-chart
+==> Linting ./helm-chart
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube start --driver=docker --cpus=2 --memory=4096 --disksize=20g --kubernetes-version=v1.30.0
+Error: unknown flag: --disksize
+See 'minikube start --help' for usage.
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube start --driver=docker --cpus=2 --memory=4096 --disk-size=20g --kubernetes-version=v1.30.0
+* minikube v1.36.0 on Microsoft Windows 11 Home Single Language 10.0.26100.6584 Build 26100.6584
+* Kubernetes 1.33.1 is now available. If you would like to upgrade, specify: --kubernetes-version=v1.33.1
+* Using the docker driver based on existing profile
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.47 ...
+* docker "minikube" container is missing, will recreate.
+* Creating docker container (CPUs=2, Memory=4096MB) ...
+! Failing to connect to https://registry.k8s.io/ from inside the minikube container
+* To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+* Preparing Kubernetes v1.30.0 on Docker 28.1.1 ...
+* Verifying Kubernetes components...
+* After the addon is enabled, please run "minikube tunnel" and your ingress resources would be available at "127.0.0.1"
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+  - Using image registry.k8s.io/ingress-nginx/controller:v1.12.2
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.3
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.3
+! Enabling 'storage-provisioner' returned an error: running callbacks: [sudo KUBECONFIG=/var/lib/minikube/kubeconfig /var/lib/minikube/binaries/v1.30.0/kubectl apply --force -f /etc/kubernetes/addons/storage-provisioner.yaml: Process exited with status 1
+stdout:
+
+stderr:
+error: error validating "/etc/kubernetes/addons/storage-provisioner.yaml": error validating data: failed to download openapi: Get "https://localhost:8443/openapi/v2?timeout=32s": dial tcp [::1]:8443: connect: connection refused; if you choose to ignore these errors, turn validation off with --validate=false
+]
+* Verifying ingress addon...
+! Enabling 'default-storageclass' returned an error: running callbacks: [sudo KUBECONFIG=/var/lib/minikube/kubeconfig /var/lib/minikube/binaries/v1.30.0/kubectl apply --force -f /etc/kubernetes/addons/storageclass.yaml: Process exited with status 1
+stdout:
+
+stderr:
+error: error validating "/etc/kubernetes/addons/storageclass.yaml": error validating data: failed to download openapi: Get "https://localhost:8443/openapi/v2?timeout=32s": dial tcp [::1]:8443: connect: connection refused; if you choose to ignore these errors, turn validation off with --validate=false
+]
+^C
+C:\Users\GAYATRI\Downloads\helm-v2>
+C:\Users\GAYATRI\Downloads\helm-v2>miinikube delete
+'miinikube' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube delete
+* Deleting "minikube" in docker ...
+* Deleting container "minikube" ...
+* Removing C:\Users\GAYATRI\.minikube\machines\minikube ...
+* Removed all traces of the "minikube" cluster.
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube start --driver=docker --cpus=2 --memory=4096 --disk-size=20g --kubernetes-version=v1.30.0
+* minikube v1.36.0 on Microsoft Windows 11 Home Single Language 10.0.26100.6584 Build 26100.6584
+* Using the docker driver based on user configuration
+* Using Docker Desktop driver with root privileges
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.47 ...
+* Creating docker container (CPUs=2, Memory=4096MB) ...
+! Failing to connect to https://registry.k8s.io/ from inside the minikube container
+* To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+* Preparing Kubernetes v1.30.0 on Docker 28.1.1 ...
+  - Generating certificates and keys ...
+  - Booting up control plane ...
+  - Configuring RBAC rules ...
+* Configuring bridge CNI (Container Networking Interface) ...
+* Verifying Kubernetes components...
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+* Enabled addons: storage-provisioner, default-storageclass
+* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+"secrets-store-csi-driver" already exists with the same configuration, skipping
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "secrets-store-csi-driver" chart repository
+Update Complete. ⎈Happy Helming!⎈
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm install csi-driver secrets-store-csi-driver/secrets-store-csi-driver --namespace kube-system
+NAME: csi-driver
+LAST DEPLOYED: Fri Oct 31 08:20:59 2025
+NAMESPACE: kube-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The Secrets Store CSI Driver is getting deployed to your cluster.
+
+To verify that Secrets Store CSI Driver has started, run:
+
+  kubectl --namespace=kube-system get pods -l "app=secrets-store-csi-driver"
+
+Now you can follow these steps https://secrets-store-csi-driver.sigs.k8s.io/getting-started/usage.html
+to create a SecretProviderClass resource, and a deployment using the SecretProviderClass.
+
+C:\Users\GAYATRI\Downloads\helm-v2>
+C:\Users\GAYATRI\Downloads\helm-v2>helm addons enable ingress
+Error: unknown command "addons" for "helm"
+Run 'helm --help' for usage.
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube addons enable ingress
+* ingress is an addon maintained by Kubernetes. For any concerns contact minikube on GitHub.
+You can view the list of minikube maintainers at: https://github.com/kubernetes/minikube/blob/master/OWNERS
+* After the addon is enabled, please run "minikube tunnel" and your ingress resources would be available at "127.0.0.1"
+  - Using image registry.k8s.io/ingress-nginx/controller:v1.12.2
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.3
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.3
+* Verifying ingress addon...
+* The 'ingress' addon is enabled
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm install testchart ./helm-chart
+NAME: testchart
+LAST DEPLOYED: Fri Oct 31 08:23:15 2025
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube service testchart ./helm-chart
+
+X Exiting due to SVC_NOT_FOUND: Service 'testchart' was not found in 'default' namespace.
+You may select another namespace by using 'minikube service testchart -n <namespace>'. Or list out all the services using 'minikube service list'
+
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube service testchart-my-chart --url
+
+X Exiting due to SVC_NOT_FOUND: Service 'testchart-my-chart' was not found in 'default' namespace.
+You may select another namespace by using 'minikube service testchart-my-chart -n <namespace>'. Or list out all the services using 'minikube service list'
+
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm upgrade testchart ./helm-chart
+Release "testchart" has been upgraded. Happy Helming!
+
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm upgrade mytest ./helm-chart
+Release "mytest" has been upgraded. Happy Helming!
+NAME: mytest
+LAST DEPLOYED: Fri Oct 31 08:29:57 2025
+NAMESPACE: default
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube service mytest-my-app
+|-----------|---------------|-------------|---------------------------|
+| NAMESPACE |     NAME      | TARGET PORT |            URL            |
+|-----------|---------------|-------------|---------------------------|
+| default   | mytest-my-app | http/80     | http://192.168.49.2:32434 |
+|-----------|---------------|-------------|---------------------------|
+
+X Exiting due to SVC_UNREACHABLE: service not available: no running pod for service mytest-my-app found
+*
+╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                               │
+│    * If the above advice does not help, please let us know:                                                   │
+│      https://github.com/kubernetes/minikube/issues/new/choose                                                 │
+│                                                                                                               │
+│    * Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.                      │
+│    * Please also attach the following file to the GitHub issue:                                               │
+│    * - C:\Users\GAYATRI\AppData\Local\Temp\minikube_service_3a5a41caea95a8a203e41fce5300ec63ae2924a4_0.log    │
+│                                                                                                               │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get svc mytest-my-app -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: mytest
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2025-10-31T02:56:02Z"
+  labels:
+    app.kubernetes.io/instance: mytest
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: my-app
+    app.kubernetes.io/version: 1.0.0
+    helm.sh/chart: your-chart-0.1.0
+  name: mytest-my-app
+  namespace: default
+  resourceVersion: "1147"
+  uid: f52b3556-9938-448e-ba2e-b3f59a0d17aa
+spec:
+  clusterIP: 10.105.146.24
+  clusterIPs:
+  - 10.105.146.24
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    nodePort: 32434
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app.kubernetes.io/instance: mytest
+    app.kubernetes.io/name: my-app
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube image load my-app:latest
+! The image 'my-app:latest' was not found; unable to add it to cache.
+
+C:\Users\GAYATRI\Downloads\helm-v2>docker images
+REPOSITORY                    TAG        IMAGE ID       CREATED        SIZE
+myregistry/my-app             latest     ad4e538f8581   24 hours ago   225MB
+gayatripadhii/my-app          latestv2   c721232ac354   45 hours ago   226MB
+gcr.io/k8s-minikube/kicbase   v0.0.47    8311be96a0a8   5 months ago   1.86GB
+gcr.io/k8s-minikube/kicbase   <none>     6ed579c9292b   5 months ago   1.86GB
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm upgrade --install mytest ./helm-chart
+Release "mytest" has been upgraded. Happy Helming!
+NAME: mytest
+LAST DEPLOYED: Fri Oct 31 08:33:11 2025
+NAMESPACE: default
+STATUS: deployed
+REVISION: 3
+TEST SUITE: None
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl delete pod -l app.kubernetes.io/name=my-app
+pod "mytest-my-app-655b78cc94-z82qr" deleted
+pod "mytest-my-app-d6579d447-2w4wx" deleted
+pod "mytest-my-app-d6579d447-tdlbm" deleted
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -w
+NAME                             READY   STATUS              RESTARTS   AGE
+mytest-my-app-655b78cc94-lmfss   0/1     ContainerCreating   0          2s
+mytest-my-app-d6579d447-4ncdx    0/1     ContainerCreating   0          1s
+mytest-my-app-d6579d447-mqn5l    0/1     ContainerCreating   0          2s
+mytest-my-app-d6579d447-mqn5l    0/1     ErrImagePull        0          5s
+mytest-my-app-655b78cc94-lmfss   0/1     ErrImagePull        0          8s
+mytest-my-app-655b78cc94-lmfss   0/1     ImagePullBackOff    0          9s
+mytest-my-app-d6579d447-4ncdx    0/1     ErrImagePull        0          9s
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube service mytest-my-app
+|-----------|---------------|-------------|---------------------------|
+| NAMESPACE |     NAME      | TARGET PORT |            URL            |
+|-----------|---------------|-------------|---------------------------|
+| default   | mytest-my-app | http/80     | http://192.168.49.2:32434 |
+|-----------|---------------|-------------|---------------------------|
+
+X Exiting due to SVC_UNREACHABLE: service not available: no running pod for service mytest-my-app found
+*
+╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                               │
+│    * If the above advice does not help, please let us know:                                                   │
+│      https://github.com/kubernetes/minikube/issues/new/choose                                                 │
+│                                                                                                               │
+│    * Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.                      │
+│    * Please also attach the following file to the GitHub issue:                                               │
+│    * - C:\Users\GAYATRI\AppData\Local\Temp\minikube_service_3a5a41caea95a8a203e41fce5300ec63ae2924a4_0.log    │
+│                                                                                                               │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube image load myregistry/my-app:latest
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm get values mytest
+USER-SUPPLIED VALUES:
+null
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm upgrade mytest ./helm-chart \
+Error: "helm upgrade" requires 2 arguments
+
+Usage:  helm upgrade [RELEASE] [CHART] [flags]
+
+C:\Users\GAYATRI\Downloads\helm-v2>  --set image.repository=myregistry/my-app \
+'--set' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\GAYATRI\Downloads\helm-v2>  --set image.tag=latest
+'--set' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm upgrade mytest ./helm-chart  --set image.repository=myregistry/my-app  --set image.tag=latest
+Release "mytest" has been upgraded. Happy Helming!
+NAME: mytest
+LAST DEPLOYED: Fri Oct 31 08:36:33 2025
+NAMESPACE: default
+STATUS: deployed
+REVISION: 4
+TEST SUITE: None
+
+C:\Users\GAYATRI\Downloads\helm-v2>helm get values mytest
+USER-SUPPLIED VALUES:
+image:
+  repository: myregistry/my-app
+  tag: latest
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube image load myregistry/my-app:latest
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl delete pod -l app.kubernetes.io/name=my-app
+pod "mytest-my-app-655b78cc94-lmfss" deleted
+pod "mytest-my-app-d6579d447-4ncdx" deleted
+pod "mytest-my-app-d6579d447-mqn5l" deleted
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -w
+NAME                             READY   STATUS              RESTARTS   AGE
+mytest-my-app-655b78cc94-4hzrn   0/1     ContainerCreating   0          3s
+mytest-my-app-d6579d447-6nnjf    0/1     ContainerCreating   0          3s
+mytest-my-app-d6579d447-kdf8j    0/1     ContainerCreating   0          3s
+mytest-my-app-d6579d447-6nnjf    0/1     ErrImagePull        0          6s
+mytest-my-app-655b78cc94-4hzrn   0/1     ErrImagePull        0          9s
+mytest-my-app-d6579d447-kdf8j    0/1     ErrImagePull        0          11s
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube service mytest-my-app
+|-----------|---------------|-------------|---------------------------|
+| NAMESPACE |     NAME      | TARGET PORT |            URL            |
+|-----------|---------------|-------------|---------------------------|
+| default   | mytest-my-app | http/80     | http://192.168.49.2:32434 |
+|-----------|---------------|-------------|---------------------------|
+
+X Exiting due to SVC_UNREACHABLE: service not available: no running pod for service mytest-my-app found
+*
+╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                               │
+│    * If the above advice does not help, please let us know:                                                   │
+│      https://github.com/kubernetes/minikube/issues/new/choose                                                 │
+│                                                                                                               │
+│    * Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.                      │
+│    * Please also attach the following file to the GitHub issue:                                               │
+│    * - C:\Users\GAYATRI\AppData\Local\Temp\minikube_service_3a5a41caea95a8a203e41fce5300ec63ae2924a4_0.log    │
+│                                                                                                               │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get ingress
+No resources found in default namespace.
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get ingress -n kubesystem
+No resources found in kubesystem namespace.
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n kube-system | grep ingress
+'grep' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n kube-system
+NAME                                        READY   STATUS    RESTARTS      AGE
+coredns-7db6d8ff4d-bjpnr                    1/1     Running   0             20m
+csi-driver-secrets-store-csi-driver-tds68   3/3     Running   0             17m
+etcd-minikube                               1/1     Running   0             21m
+kube-apiserver-minikube                     1/1     Running   0             21m
+kube-controller-manager-minikube            1/1     Running   0             21m
+kube-proxy-4dkk4                            1/1     Running   0             20m
+kube-scheduler-minikube                     1/1     Running   0             21m
+storage-provisioner                         1/1     Running   1 (20m ago)   20m
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods
+NAME                             READY   STATUS             RESTARTS   AGE
+mytest-my-app-655b78cc94-4hzrn   0/1     ErrImagePull       0          2m10s
+mytest-my-app-d6579d447-6nnjf    0/1     ImagePullBackOff   0          2m10s
+mytest-my-app-d6579d447-kdf8j    0/1     ErrImagePull       0          2m10s
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl enable addons ingress
+error: unknown command "enable" for "kubectl"
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube addons enable ingress
+* ingress is an addon maintained by Kubernetes. For any concerns contact minikube on GitHub.
+You can view the list of minikube maintainers at: https://github.com/kubernetes/minikube/blob/master/OWNERS
+* After the addon is enabled, please run "minikube tunnel" and your ingress resources would be available at "127.0.0.1"
+  - Using image registry.k8s.io/ingress-nginx/controller:v1.12.2
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.3
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.3
+* Verifying ingress addon...
+* The 'ingress' addon is enabled
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n kube-system
+NAME                                        READY   STATUS    RESTARTS      AGE
+coredns-7db6d8ff4d-bjpnr                    1/1     Running   0             22m
+csi-driver-secrets-store-csi-driver-tds68   3/3     Running   0             19m
+etcd-minikube                               1/1     Running   0             22m
+kube-apiserver-minikube                     1/1     Running   0             22m
+kube-controller-manager-minikube            1/1     Running   0             22m
+kube-proxy-4dkk4                            1/1     Running   0             22m
+kube-scheduler-minikube                     1/1     Running   0             22m
+storage-provisioner                         1/1     Running   1 (21m ago)   22m
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n kube-system
+NAME                                        READY   STATUS    RESTARTS      AGE
+coredns-7db6d8ff4d-bjpnr                    1/1     Running   0             22m
+csi-driver-secrets-store-csi-driver-tds68   3/3     Running   0             19m
+etcd-minikube                               1/1     Running   0             22m
+kube-apiserver-minikube                     1/1     Running   0             22m
+kube-controller-manager-minikube            1/1     Running   0             22m
+kube-proxy-4dkk4                            1/1     Running   0             22m
+kube-scheduler-minikube                     1/1     Running   0             22m
+storage-provisioner                         1/1     Running   1 (21m ago)   22m
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get deploy -n kube-system | grep ingress
+'grep' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get deploy -n kube-system | findstr ingress
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+namespace/ingress-nginx unchanged
+serviceaccount/ingress-nginx configured
+serviceaccount/ingress-nginx-admission configured
+role.rbac.authorization.k8s.io/ingress-nginx configured
+role.rbac.authorization.k8s.io/ingress-nginx-admission configured
+clusterrole.rbac.authorization.k8s.io/ingress-nginx configured
+clusterrole.rbac.authorization.k8s.io/ingress-nginx-admission configured
+rolebinding.rbac.authorization.k8s.io/ingress-nginx configured
+rolebinding.rbac.authorization.k8s.io/ingress-nginx-admission configured
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx configured
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx-admission configured
+configmap/ingress-nginx-controller configured
+service/ingress-nginx-controller configured
+service/ingress-nginx-controller-admission configured
+deployment.apps/ingress-nginx-controller configured
+ingressclass.networking.k8s.io/nginx configured
+validatingwebhookconfiguration.admissionregistration.k8s.io/ingress-nginx-admission configured
+Error from server (Invalid): error when applying patch:
+{"metadata":{"annotations":{"kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"labels\":{\"app.kubernetes.io/component\":\"admission-webhook\",\"app.kubernetes.io/instance\":\"ingress-nginx\",\"app.kubernetes.io/name\":\"ingress-nginx\",\"app.kubernetes.io/part-of\":\"ingress-nginx\",\"app.kubernetes.io/version\":\"1.13.3\"},\"name\":\"ingress-nginx-admission-create\",\"namespace\":\"ingress-nginx\"},\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"app.kubernetes.io/component\":\"admission-webhook\",\"app.kubernetes.io/instance\":\"ingress-nginx\",\"app.kubernetes.io/name\":\"ingress-nginx\",\"app.kubernetes.io/part-of\":\"ingress-nginx\",\"app.kubernetes.io/version\":\"1.13.3\"},\"name\":\"ingress-nginx-admission-create\"},\"spec\":{\"automountServiceAccountToken\":true,\"containers\":[{\"args\":[\"create\",\"--host=ingress-nginx-controller-admission,ingress-nginx-controller-admission.$(POD_NAMESPACE).svc\",\"--namespace=$(POD_NAMESPACE)\",\"--secret-name=ingress-nginx-admission\"],\"env\":[{\"name\":\"POD_NAMESPACE\",\"valueFrom\":{\"fieldRef\":{\"fieldPath\":\"metadata.namespace\"}}}],\"image\":\"registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3@sha256:3d671cf20a35cd94efc5dcd484970779eb21e7938c98fbc3673693b8a117cf39\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"create\",\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsGroup\":65532,\"runAsNonRoot\":true,\"runAsUser\":65532,\"seccompProfile\":{\"type\":\"RuntimeDefault\"}}}],\"nodeSelector\":{\"kubernetes.io/os\":\"linux\"},\"restartPolicy\":\"OnFailure\",\"serviceAccountName\":\"ingress-nginx-admission\"}},\"ttlSecondsAfterFinished\":0}}\n"},"labels":{"app.kubernetes.io/part-of":"ingress-nginx","app.kubernetes.io/version":"1.13.3"}},"spec":{"template":{"metadata":{"labels":{"app.kubernetes.io/part-of":"ingress-nginx","app.kubernetes.io/version":"1.13.3"}},"spec":{"$setElementOrder/containers":[{"name":"create"}],"automountServiceAccountToken":true,"containers":[{"image":"registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3@sha256:3d671cf20a35cd94efc5dcd484970779eb21e7938c98fbc3673693b8a117cf39","name":"create","securityContext":{"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true,"runAsGroup":65532,"runAsNonRoot":true,"runAsUser":65532,"seccompProfile":{"type":"RuntimeDefault"}}}],"nodeSelector":{"minikube.k8s.io/primary":null},"securityContext":null}},"ttlSecondsAfterFinished":0}}
+to:
+Resource: "batch/v1, Resource=jobs", GroupVersionKind: "batch/v1, Kind=Job"
+Name: "ingress-nginx-admission-create", Namespace: "ingress-nginx"
+for: "https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml": error when patching "https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml": Job.batch "ingress-nginx-admission-create" is invalid: spec.template: Invalid value: core.PodTemplateSpec{ObjectMeta:v1.ObjectMeta{Name:"ingress-nginx-admission-create", GenerateName:"", Namespace:"", SelfLink:"", UID:"", ResourceVersion:"", Generation:0, CreationTimestamp:time.Date(1, time.January, 1, 0, 0, 0, 0, time.UTC), DeletionTimestamp:<nil>, DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string{"app.kubernetes.io/component":"admission-webhook", "app.kubernetes.io/instance":"ingress-nginx", "app.kubernetes.io/name":"ingress-nginx", "app.kubernetes.io/part-of":"ingress-nginx", "app.kubernetes.io/version":"1.13.3", "batch.kubernetes.io/controller-uid":"b68ae1a0-9c0b-4802-ac96-9efcbcba289e", "batch.kubernetes.io/job-name":"ingress-nginx-admission-create", "controller-uid":"b68ae1a0-9c0b-4802-ac96-9efcbcba289e", "job-name":"ingress-nginx-admission-create"}, Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:core.PodSpec{Volumes:[]core.Volume(nil), InitContainers:[]core.Container(nil), Containers:[]core.Container{core.Container{Name:"create", Image:"registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3@sha256:3d671cf20a35cd94efc5dcd484970779eb21e7938c98fbc3673693b8a117cf39", Command:[]string(nil), Args:[]string{"create", "--host=ingress-nginx-controller-admission,ingress-nginx-controller-admission.$(POD_NAMESPACE).svc", "--namespace=$(POD_NAMESPACE)", "--secret-name=ingress-nginx-admission"}, WorkingDir:"", Ports:[]core.ContainerPort(nil), EnvFrom:[]core.EnvFromSource(nil), Env:[]core.EnvVar{core.EnvVar{Name:"POD_NAMESPACE", Value:"", ValueFrom:(*core.EnvVarSource)(0xc00bdab2e0)}}, Resources:core.ResourceRequirements{Limits:core.ResourceList(nil), Requests:core.ResourceList(nil), Claims:[]core.ResourceClaim(nil)}, ResizePolicy:[]core.ContainerResizePolicy(nil), RestartPolicy:(*core.ContainerRestartPolicy)(nil), VolumeMounts:[]core.VolumeMount(nil), VolumeDevices:[]core.VolumeDevice(nil), LivenessProbe:(*core.Probe)(nil), ReadinessProbe:(*core.Probe)(nil), StartupProbe:(*core.Probe)(nil), Lifecycle:(*core.Lifecycle)(nil), TerminationMessagePath:"/dev/termination-log", TerminationMessagePolicy:"File", ImagePullPolicy:"IfNotPresent", SecurityContext:(*core.SecurityContext)(0xc00c1e4240), Stdin:false, StdinOnce:false, TTY:false}}, EphemeralContainers:[]core.EphemeralContainer(nil), RestartPolicy:"OnFailure", TerminationGracePeriodSeconds:(*int64)(0xc0035a35a8), ActiveDeadlineSeconds:(*int64)(nil), DNSPolicy:"ClusterFirst", NodeSelector:map[string]string{"kubernetes.io/os":"linux"}, ServiceAccountName:"ingress-nginx-admission", AutomountServiceAccountToken:(*bool)(0xc0035a35b0), NodeName:"", SecurityContext:(*core.PodSecurityContext)(0xc00b527200), ImagePullSecrets:[]core.LocalObjectReference(nil), Hostname:"", Subdomain:"", SetHostnameAsFQDN:(*bool)(nil), Affinity:(*core.Affinity)(nil), SchedulerName:"default-scheduler", Tolerations:[]core.Toleration(nil), HostAliases:[]core.HostAlias(nil), PriorityClassName:"", Priority:(*int32)(nil), PreemptionPolicy:(*core.PreemptionPolicy)(nil), DNSConfig:(*core.PodDNSConfig)(nil), ReadinessGates:[]core.PodReadinessGate(nil), RuntimeClassName:(*string)(nil), Overhead:core.ResourceList(nil), EnableServiceLinks:(*bool)(nil), TopologySpreadConstraints:[]core.TopologySpreadConstraint(nil), OS:(*core.PodOS)(nil), SchedulingGates:[]core.PodSchedulingGate(nil), ResourceClaims:[]core.PodResourceClaim(nil)}}: field is immutable
+Error from server (Invalid): error when applying patch:
+{"metadata":{"annotations":{"kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"labels\":{\"app.kubernetes.io/component\":\"admission-webhook\",\"app.kubernetes.io/instance\":\"ingress-nginx\",\"app.kubernetes.io/name\":\"ingress-nginx\",\"app.kubernetes.io/part-of\":\"ingress-nginx\",\"app.kubernetes.io/version\":\"1.13.3\"},\"name\":\"ingress-nginx-admission-patch\",\"namespace\":\"ingress-nginx\"},\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"app.kubernetes.io/component\":\"admission-webhook\",\"app.kubernetes.io/instance\":\"ingress-nginx\",\"app.kubernetes.io/name\":\"ingress-nginx\",\"app.kubernetes.io/part-of\":\"ingress-nginx\",\"app.kubernetes.io/version\":\"1.13.3\"},\"name\":\"ingress-nginx-admission-patch\"},\"spec\":{\"automountServiceAccountToken\":true,\"containers\":[{\"args\":[\"patch\",\"--webhook-name=ingress-nginx-admission\",\"--namespace=$(POD_NAMESPACE)\",\"--patch-mutating=false\",\"--secret-name=ingress-nginx-admission\",\"--patch-failure-policy=Fail\"],\"env\":[{\"name\":\"POD_NAMESPACE\",\"valueFrom\":{\"fieldRef\":{\"fieldPath\":\"metadata.namespace\"}}}],\"image\":\"registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3@sha256:3d671cf20a35cd94efc5dcd484970779eb21e7938c98fbc3673693b8a117cf39\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"patch\",\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsGroup\":65532,\"runAsNonRoot\":true,\"runAsUser\":65532,\"seccompProfile\":{\"type\":\"RuntimeDefault\"}}}],\"nodeSelector\":{\"kubernetes.io/os\":\"linux\"},\"restartPolicy\":\"OnFailure\",\"serviceAccountName\":\"ingress-nginx-admission\"}},\"ttlSecondsAfterFinished\":0}}\n"},"labels":{"app.kubernetes.io/part-of":"ingress-nginx","app.kubernetes.io/version":"1.13.3"}},"spec":{"template":{"metadata":{"labels":{"app.kubernetes.io/part-of":"ingress-nginx","app.kubernetes.io/version":"1.13.3"}},"spec":{"$setElementOrder/containers":[{"name":"patch"}],"automountServiceAccountToken":true,"containers":[{"image":"registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3@sha256:3d671cf20a35cd94efc5dcd484970779eb21e7938c98fbc3673693b8a117cf39","name":"patch","securityContext":{"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true,"runAsGroup":65532,"runAsNonRoot":true,"runAsUser":65532,"seccompProfile":{"type":"RuntimeDefault"}}}],"nodeSelector":{"minikube.k8s.io/primary":null},"securityContext":null}},"ttlSecondsAfterFinished":0}}
+to:
+Resource: "batch/v1, Resource=jobs", GroupVersionKind: "batch/v1, Kind=Job"
+Name: "ingress-nginx-admission-patch", Namespace: "ingress-nginx"
+for: "https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml": error when patching "https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml": Job.batch "ingress-nginx-admission-patch" is invalid: spec.template: Invalid value: core.PodTemplateSpec{ObjectMeta:v1.ObjectMeta{Name:"ingress-nginx-admission-patch", GenerateName:"", Namespace:"", SelfLink:"", UID:"", ResourceVersion:"", Generation:0, CreationTimestamp:time.Date(1, time.January, 1, 0, 0, 0, 0, time.UTC), DeletionTimestamp:<nil>, DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string{"app.kubernetes.io/component":"admission-webhook", "app.kubernetes.io/instance":"ingress-nginx", "app.kubernetes.io/name":"ingress-nginx", "app.kubernetes.io/part-of":"ingress-nginx", "app.kubernetes.io/version":"1.13.3", "batch.kubernetes.io/controller-uid":"6b86b412-a3c5-46b7-9bc6-a54a156ee5bb", "batch.kubernetes.io/job-name":"ingress-nginx-admission-patch", "controller-uid":"6b86b412-a3c5-46b7-9bc6-a54a156ee5bb", "job-name":"ingress-nginx-admission-patch"}, Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:core.PodSpec{Volumes:[]core.Volume(nil), InitContainers:[]core.Container(nil), Containers:[]core.Container{core.Container{Name:"patch", Image:"registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3@sha256:3d671cf20a35cd94efc5dcd484970779eb21e7938c98fbc3673693b8a117cf39", Command:[]string(nil), Args:[]string{"patch", "--webhook-name=ingress-nginx-admission", "--namespace=$(POD_NAMESPACE)", "--patch-mutating=false", "--secret-name=ingress-nginx-admission", "--patch-failure-policy=Fail"}, WorkingDir:"", Ports:[]core.ContainerPort(nil), EnvFrom:[]core.EnvFromSource(nil), Env:[]core.EnvVar{core.EnvVar{Name:"POD_NAMESPACE", Value:"", ValueFrom:(*core.EnvVarSource)(0xc00b288740)}}, Resources:core.ResourceRequirements{Limits:core.ResourceList(nil), Requests:core.ResourceList(nil), Claims:[]core.ResourceClaim(nil)}, ResizePolicy:[]core.ContainerResizePolicy(nil), RestartPolicy:(*core.ContainerRestartPolicy)(nil), VolumeMounts:[]core.VolumeMount(nil), VolumeDevices:[]core.VolumeDevice(nil), LivenessProbe:(*core.Probe)(nil), ReadinessProbe:(*core.Probe)(nil), StartupProbe:(*core.Probe)(nil), Lifecycle:(*core.Lifecycle)(nil), TerminationMessagePath:"/dev/termination-log", TerminationMessagePolicy:"File", ImagePullPolicy:"IfNotPresent", SecurityContext:(*core.SecurityContext)(0xc00a06a120), Stdin:false, StdinOnce:false, TTY:false}}, EphemeralContainers:[]core.EphemeralContainer(nil), RestartPolicy:"OnFailure", TerminationGracePeriodSeconds:(*int64)(0xc0076de958), ActiveDeadlineSeconds:(*int64)(nil), DNSPolicy:"ClusterFirst", NodeSelector:map[string]string{"kubernetes.io/os":"linux"}, ServiceAccountName:"ingress-nginx-admission", AutomountServiceAccountToken:(*bool)(0xc0076de960), NodeName:"", SecurityContext:(*core.PodSecurityContext)(0xc00a6c22d0), ImagePullSecrets:[]core.LocalObjectReference(nil), Hostname:"", Subdomain:"", SetHostnameAsFQDN:(*bool)(nil), Affinity:(*core.Affinity)(nil), SchedulerName:"default-scheduler", Tolerations:[]core.Toleration(nil), HostAliases:[]core.HostAlias(nil), PriorityClassName:"", Priority:(*int32)(nil), PreemptionPolicy:(*core.PreemptionPolicy)(nil), DNSConfig:(*core.PodDNSConfig)(nil), ReadinessGates:[]core.PodReadinessGate(nil), RuntimeClassName:(*string)(nil), Overhead:core.ResourceList(nil), EnableServiceLinks:(*bool)(nil), TopologySpreadConstraints:[]core.TopologySpreadConstraint(nil), OS:(*core.PodOS)(nil), SchedulingGates:[]core.PodSchedulingGate(nil), ResourceClaims:[]core.PodResourceClaim(nil)}}: field is immutable
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS              RESTARTS   AGE
+ingress-nginx-admission-create-kxrbs        0/1     Completed           0          19m
+ingress-nginx-admission-patch-qvgx4         0/1     Completed           0          19m
+ingress-nginx-controller-5fc8499d49-54w8p   0/1     ContainerCreating   0          15s
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS              RESTARTS   AGE
+ingress-nginx-admission-create-kxrbs        0/1     Completed           0          19m
+ingress-nginx-admission-patch-qvgx4         0/1     Completed           0          19m
+ingress-nginx-controller-5fc8499d49-54w8p   0/1     ContainerCreating   0          24s
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-kxrbs        0/1     Completed   0          19m
+ingress-nginx-admission-patch-qvgx4         0/1     Completed   0          19m
+ingress-nginx-controller-5fc8499d49-54w8p   0/1     Running     0          28s
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-kxrbs        0/1     Completed   0          19m
+ingress-nginx-admission-patch-qvgx4         0/1     Completed   0          19m
+ingress-nginx-controller-5fc8499d49-54w8p   0/1     Running     0          32s
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-kxrbs        0/1     Completed   0          19m
+ingress-nginx-admission-patch-qvgx4         0/1     Completed   0          19m
+ingress-nginx-controller-5fc8499d49-54w8p   0/1     Running     0          36s
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube tunnel
+* Tunnel successfully started
+
+* NOTE: Please do not close this terminal as this process must stay alive for the tunnel to be accessible ...
+
+! Access to ports below 1024 may fail on Windows with OpenSSH clients older than v8.1. For more information, see: https://minikube.sigs.k8s.io/docs/handbook/accessing/#access-to-ports-1024-on-windows-requires-root-permission
+* Starting tunnel for service ingress-nginx-controller.
+* Stopped tunnel for service ingress-nginx-controller.
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl get svc -n ingress-nginx
+NAME                                 TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+ingress-nginx-controller             LoadBalancer   10.98.191.45     <pending>     80:31476/TCP,443:30144/TCP   20m
+ingress-nginx-controller-admission   ClusterIP      10.109.199.110   <none>        443/TCP                      20m
+
+C:\Users\GAYATRI\Downloads\helm-v2>minikube tunnel
+
+* Exiting due to TUNNEL_ALREADY_RUNNING: Another tunnel process is already running, terminate the existing instance to start a new one
+
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl apply -f test-ingress.yaml
+error: the path "test-ingress.yaml" does not exist
+
+C:\Users\GAYATRI\Downloads\helm-v2>kubectl apply -f testingress.yaml
+error: the path "testingress.yaml" does not exist
+
+C:\Users\GAYATRI\Downloads\helm-v2>cd helm-chart
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart>kubectl apply -f testingress.yaml
+error: the path "testingress.yaml" does not exist
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart>kubectl apply -f testingress.yaml
+error: the path "testingress.yaml" does not exist
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart>cd templates
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart\templates>kubectl apply -f testingress.yaml
+ingress.networking.k8s.io/test-ingress created
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart\templates>kubectl get ingress
+NAME           CLASS   HOSTS   ADDRESS   PORTS   AGE
+test-ingress   nginx   *                 80      6s
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart\templates>kubectl get svc
+NAME            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes      ClusterIP   10.96.0.1       <none>        443/TCP        30m
+mytest-my-app   NodePort    10.105.146.24   <none>        80:32434/TCP   22m
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart\templates>kubectl apply -f testingress.yaml
+ingress.networking.k8s.io/test-ingress configured
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart\templates>http://127.0.0.1/
+'http:' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\GAYATRI\Downloads\helm-v2\helm-chart\templates>
+
+
+
+
+
+
+
+
